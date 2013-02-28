@@ -22,7 +22,7 @@
 #  Change values here													  #
 #																		  #
 VERSION="1.0.1c"													      #
-SDKVERSION="6.0"														  #
+SDKVERSION="6.1"														  #
 #																		  #
 ###########################################################################
 #																		  #
@@ -76,7 +76,7 @@ do
 	echo "Building openssl-${VERSION} for ${PLATFORM} ${SDKVERSION} ${ARCH}"
 	echo "Please stand by..."
 
-	export CC="${CROSS_TOP}/usr/bin/gcc -arch ${ARCH}"
+    export CC="$(xcrun -find clang) -arch ${ARCH}"
 	mkdir -p "${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk"
 	LOG="${CURRENTPATH}/bin/${PLATFORM}${SDKVERSION}-${ARCH}.sdk/build-openssl-${VERSION}.log"
 
